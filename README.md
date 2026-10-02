@@ -2,6 +2,8 @@
 
 Static portfolio and reviewer sandbox. The site has no build step and no external analytics, fonts, API calls or personal-data backend.
 
+The English and Russian portfolio pages have canonical, language-alternate and share metadata. `assets/social-preview.png` is generated with `python3 scripts/build_social_preview.py` (Pillow and standard macOS fonts). The two fictional reviewer demos carry `noindex,follow`; their case studies remain indexable.
+
 ## Local preview
 
 ```sh
