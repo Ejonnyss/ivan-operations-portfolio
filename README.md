@@ -1,0 +1,20 @@
+# Ivan Epifanov — Operations × AI × Product
+
+Static portfolio and reviewer sandbox. The site has no build step and no external analytics, fonts, API calls or personal-data backend.
+
+## Local preview
+
+```sh
+python3 -m http.server 4176
+```
+
+Open `http://127.0.0.1:4176/`. The KadrLine reviewer sandbox persists only in the visitor's browser. Use **Reset sandbox** to delete its local record.
+
+## Evidence and boundaries
+
+- LIFE: REBUILD links to a separately deployed synthetic demo. The screenshot is from that demo.
+- KadrLine sandbox is a new illustrative workflow; it does not reproduce the commercial risk scoring or call a production integration.
+- Job operations is a sanitized architecture overview. Production CRM, correspondence and employer data are not in this repository.
+- Codex contributed implementation and QA. The owner retains product decisions and acceptance.
+
+See the individual case pages for exact test and release status. No impact metric is inferred from a successful build.
