@@ -1,6 +1,6 @@
 # KadrLine: как устроен демонстрационный сценарий
 
-[Кейс](../ru/cases/kadrline.html) · [Демо кадровой заявки](../demos/kadrline/ru/) · [Публичный чек-лист](https://kadrline-risk-map-api.isepifanov.chatgpt.site/voinskiy-uchet) · [Снимок стенда](../assets/kadrline-workflow.png)
+[Кейс](../ru/cases/kadrline.html) · [Демо кадровой заявки](../demos/kadrline/ru/) · [Публичный чек-лист](https://kadrline-risk-map-api.isepifanov.chatgpt.site/voinskiy-uchet) · [Снимок стенда](../assets/kadrline-workflow-ru.png)
 
 ## Что сделано
 
