@@ -27,7 +27,7 @@ flowchart LR
 - The `?demo=1` selector chooses `life-rebuild-demo-v1` before state or media reads. The personal route uses `life-rebuild-v3` and continues to require an encrypted import.
 - Route packs are validated and checksummed. A simulated action advances the fictional mission, while a separate external-result event changes the world state.
 - The personal path has encrypted backup/import. The source uses PBKDF2-SHA256 key derivation and AES-GCM for that file; the demo does not handle personal files.
-- A service worker supports the static offline shell and bundled media. Physical-iPhone offline acceptance remains open.
+- A service worker precaches the static shell and illustrations. The 16 MP4 files load as needed, or the user can save all of them from “Герой” for offline viewing. Physical-iPhone offline acceptance remains open.
 
 ## Setup and verification
 
@@ -40,7 +40,7 @@ npm run lint
 npm run build
 ```
 
-After the demo change, 39/39 tests, lint and build passed. Browser QA checked a new demo session, action → separate external result, reload persistence and mode isolation at 390 px and 1280 px. GitHub Pages served the new compiled bundle. These checks do not establish retention, long-term usefulness or iPhone acceptance.
+After the demo and offline-shell changes, 39/39 tests, lint and build passed. Browser QA checked a new demo session, action → separate external result, reload persistence and mode isolation at 390 px and 1280 px. A fresh local install activated the service worker in 214 ms with 19 cached shell files and no MP4 files; the optional save control cached all 16 videos and an offline reload succeeded. GitHub Pages build `5aec023` served the updated bundle; a fresh live browser found the same 19 shell files and reloaded the demo offline at 390 px without horizontal overflow. Local timing is not a live performance measurement. These checks do not establish retention, long-term usefulness or iPhone acceptance.
 
 ## Decisions and next gates
 
