@@ -25,7 +25,8 @@ The public sandbox is a separate static interface. It validates a fictional requ
 
 - Private Worker package: 20/20 automated tests passed in this audit.
 - Public sandbox: browser-tested request → validation → assignment → result, reload persistence and export, including mobile visual review.
-- GitHub Pages served the sandbox and its case page. The KadrLine Tilda page returned ddos-guard HTTP 402 to this environment, so production questionnaire submission and WEEEK/email delivery remain unverified here.
+- GitHub Pages served the sandbox and its case page. A read-only live API health request returned HTTP 200 with SMTP and WEEEK configuration flags true; an allowed-origin `OPTIONS` preflight returned 204. These checks establish endpoint availability and configuration, not task or email delivery.
+- The KadrLine Tilda page returned ddos-guard HTTP 402 to this environment, so the public questionnaire user flow and production POST submission remain unverified here.
 
 The next gate is authorized production readback with a redacted synthetic submission and delivery evidence. No employer/client data or private credentials should enter a public repository.
 
