@@ -1,0 +1,18 @@
+# AI-assisted delivery: evidence trail
+
+This is how the portfolio projects used Codex. It describes inspected artifacts and release checks, not an autonomous engineering team employed by Ivan or a claim that he independently wrote the code.
+
+| Work | Product constraint / direction | Codex-generated implementation | Observed verification | Acceptance boundary |
+|---|---|---|---|---|
+| [LIFE: REBUILD](https://ejonnyss.github.io/ivan-operations-portfolio/cases/life.html) | Let a reviewer experience the action → external-result loop without importing Ivan's private life plan. Keep the demo's storage separate. | Fictional entry route, isolated IndexedDB store, labels, reset path and a later service-worker change that caches the shell before optional videos. | 39/39 tests, lint, build, local browser flow, deployed [demo](https://ejonnyss.github.io/life-rebuild/v3-phone-test/?demo=1) and a live browser offline reload. The optional control saved all 16 videos in the browser check. | Physical iPhone behavior, sustained usefulness and Ivan's final product acceptance are not recorded. The 214 ms local service-worker activation is not a live speed claim. |
+| [KadrLine](https://ejonnyss.github.io/ivan-operations-portfolio/cases/kadrline.html) | Show a bounded HR operations handoff without publishing commercial code or client data. A contact form must not promise email when the API cannot confirm it. | Separate fictional request sandbox; narrow Sites fixes for analytics CSP (v11), uncertain email replay wording (v12) and icon 404s (v13). | Private Worker package 25/25 tests, including fictional WEEEK/SMTP doubles; mocked form-state browser checks; live health 200, allowed-origin preflight 204, checklist result on fictional answers, live v13 icon routes 200/302. | No production form POST, WEEEK task, email delivery, legal-copy approval or business impact is established. The public sandbox does not use the private scoring model. |
+| [Job Operations](https://ejonnyss.github.io/ivan-operations-portfolio/cases/job-operations.html) | Preserve the working CRM and exclusions; distinguish prepared material, confirmed send, response and outcome. Publish only fictional records. | In-memory SQLite schema, deduplication/report queries, snapshot generator and read-only [demo](https://ejonnyss.github.io/ivan-operations-portfolio/demos/job-operations/). | Six fictional source rows reduce to five opportunities; the generated snapshot and browser detail/filter path were checked. | The sample's two sends and one reply are fictional. This does not prove independent SQL engineering by Ivan or autonomous application delivery. |
+
+## Responsibility split
+
+1. **Ivan's direction:** career and HR domain context, desired product outcome, sensitive-data limits and the instruction to make selected flows reviewable. Existing project contracts and stage decisions remain authoritative.
+2. **Codex's work:** source discovery, implementation proposals, code, tests, browser inspection, documentation and deployment steps. Codex also found and corrected defects during QA.
+3. **Technical verification:** each case links to its actual demo or technical overview and states the checks performed. A passing build or mock is evidence only for the behavior it exercises.
+4. **Owner acceptance:** product usefulness, legal/commercial claims and irreversible release decisions stay separate from technical checks. Where that acceptance is absent, the case says so.
+
+The operating model is requirements → bounded AI task → artifact → test and visual review → release readback → explicit remaining gates. It supports Operations and Implementation positioning; it does not turn the owner into a senior software engineer or establish production LLM API expertise.

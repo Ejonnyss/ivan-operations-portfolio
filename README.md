@@ -21,4 +21,4 @@ Open `http://127.0.0.1:4176/` for English or `/ru/` for Russian. Both versions h
 
 See the individual case pages for exact test and release status. No impact metric is inferred from a successful build.
 
-Public architecture notes: [LIFE v3](technical/life-v3.md), [KadrLine](technical/kadrline.md), and the [Job Operations demo](demos/job-operations/README.md). The LIFE v3 source branch and KadrLine commercial source are not distributed here.
+Public architecture notes: [LIFE v3](technical/life-v3.md), [KadrLine](technical/kadrline.md), and the [Job Operations demo](demos/job-operations/README.md). The [AI-assisted delivery evidence trail](technical/ai-delivery-model.md) also has a [Russian version](technical/ai-delivery-model.ru.md). The LIFE v3 source branch and KadrLine commercial source are not distributed here.
