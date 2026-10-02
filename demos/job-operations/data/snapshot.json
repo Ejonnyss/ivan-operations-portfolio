@@ -1,0 +1,159 @@
+{
+  "dataset": "FICTIONAL_DEMO_ONLY",
+  "as_of": "2026-10-02",
+  "metrics": {
+    "raw_leads": 6,
+    "unique_opportunities": 5,
+    "excluded": 1,
+    "eligible": 4,
+    "confirmed_sends": 2,
+    "replies": 1
+  },
+  "opportunities": [
+    {
+      "opportunity_id": "SYN-001",
+      "company": "Aster Demo Co",
+      "role": "HR Operations Lead",
+      "fit": "Strong",
+      "reason": "HR process ownership and rollout scope match the existing career evidence.",
+      "next_action": "Tailor the HR Operations resume; verify compensation and location.",
+      "all_sources": "Career page + Job board",
+      "source_count": 2,
+      "stage": "QUALIFIED",
+      "events": [
+        {
+          "seq": 1,
+          "stage": "DISCOVERED",
+          "evidence": "Synthetic role listing"
+        },
+        {
+          "seq": 2,
+          "stage": "QUALIFIED",
+          "evidence": "Synthetic fit review"
+        }
+      ]
+    },
+    {
+      "opportunity_id": "SYN-002",
+      "company": "Harbor Demo Co",
+      "role": "AI Implementation Manager",
+      "fit": "Adjacent",
+      "reason": "Implementation scope fits; independent production LLM API ownership is not evidenced.",
+      "next_action": "Check essential technical requirements before any application.",
+      "all_sources": "Agency brief",
+      "source_count": 1,
+      "stage": "MATERIALS_READY",
+      "events": [
+        {
+          "seq": 1,
+          "stage": "DISCOVERED",
+          "evidence": "Synthetic agency brief"
+        },
+        {
+          "seq": 2,
+          "stage": "QUALIFIED",
+          "evidence": "Synthetic requirement review"
+        },
+        {
+          "seq": 3,
+          "stage": "MATERIALS_READY",
+          "evidence": "Synthetic tailored draft; no send"
+        }
+      ]
+    },
+    {
+      "opportunity_id": "SYN-003",
+      "company": "Fieldnote Demo Co",
+      "role": "Operations Manager",
+      "fit": "Strong",
+      "reason": "Cross-team operating process and HR operations evidence match.",
+      "next_action": "Wait for a response; follow up only after the agreed interval.",
+      "all_sources": "Career page",
+      "source_count": 1,
+      "stage": "SENT_CONFIRMED",
+      "events": [
+        {
+          "seq": 1,
+          "stage": "DISCOVERED",
+          "evidence": "Synthetic role listing"
+        },
+        {
+          "seq": 2,
+          "stage": "QUALIFIED",
+          "evidence": "Synthetic fit review"
+        },
+        {
+          "seq": 3,
+          "stage": "MATERIALS_READY",
+          "evidence": "Synthetic tailored draft"
+        },
+        {
+          "seq": 4,
+          "stage": "SENT_CONFIRMED",
+          "evidence": "Synthetic delivery receipt DEMO-SEND-003"
+        }
+      ]
+    },
+    {
+      "opportunity_id": "SYN-004",
+      "company": "Northline Demo Co",
+      "role": "Product Operations Manager",
+      "fit": "Adjacent",
+      "reason": "Product delivery case is relevant; production product analytics experience needs verification.",
+      "next_action": "Answer the fictional scope question before advancing the opportunity.",
+      "all_sources": "Project board",
+      "source_count": 1,
+      "stage": "REPLIED",
+      "events": [
+        {
+          "seq": 1,
+          "stage": "DISCOVERED",
+          "evidence": "Synthetic project brief"
+        },
+        {
+          "seq": 2,
+          "stage": "QUALIFIED",
+          "evidence": "Synthetic fit review"
+        },
+        {
+          "seq": 3,
+          "stage": "MATERIALS_READY",
+          "evidence": "Synthetic tailored material"
+        },
+        {
+          "seq": 4,
+          "stage": "SENT_CONFIRMED",
+          "evidence": "Synthetic delivery receipt DEMO-SEND-004"
+        },
+        {
+          "seq": 5,
+          "stage": "REPLIED",
+          "evidence": "Synthetic employer reply DEMO-REPLY-004"
+        }
+      ]
+    },
+    {
+      "opportunity_id": "SYN-005",
+      "company": "Former Workplace Demo",
+      "role": "HR Project Lead",
+      "fit": "Excluded",
+      "reason": "Fictional exclusion rule: prior workplace.",
+      "next_action": "Do not contact.",
+      "all_sources": "Career page",
+      "source_count": 1,
+      "stage": "EXCLUDED",
+      "events": [
+        {
+          "seq": 1,
+          "stage": "DISCOVERED",
+          "evidence": "Synthetic role listing"
+        },
+        {
+          "seq": 2,
+          "stage": "EXCLUDED",
+          "evidence": "Synthetic exclusion check; no contact"
+        }
+      ]
+    }
+  ]
+}

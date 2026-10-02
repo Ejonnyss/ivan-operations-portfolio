@@ -14,7 +14,7 @@ Open `http://127.0.0.1:4176/`. The KadrLine reviewer sandbox persists only in th
 
 - LIFE: REBUILD links to a separately deployed synthetic demo. The screenshot is from that demo.
 - KadrLine sandbox is a new illustrative workflow; it does not reproduce the commercial risk scoring or call a production integration.
-- Job operations is a sanitized architecture overview. Production CRM, correspondence and employer data are not in this repository.
+- Job operations has a separate static reviewer ledger built from six fictional source rows and evidence events. Its SQLite generator is in `demos/job-operations/scripts/`; production CRM, correspondence and employer data are not in this repository.
 - Codex contributed implementation and QA. The owner retains product decisions and acceptance.
 
 See the individual case pages for exact test and release status. No impact metric is inferred from a successful build.
