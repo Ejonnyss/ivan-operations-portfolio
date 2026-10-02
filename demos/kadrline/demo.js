@@ -1,15 +1,67 @@
 const KEY = 'kadrline-portfolio-sandbox-v1';
-const labels = {
+const RU = document.documentElement.lang === 'ru';
+const labels = RU ? {
+  onboarding: 'Оформление нового сотрудника',
+  deadline: 'Срок кадрового документа',
+  'role-change': 'Изменение должности',
+} : {
   onboarding: 'New employee onboarding',
   deadline: 'Document deadline',
   'role-change': 'Role change',
 };
-const owners = {
+const owners = RU ? {
+  onboarding: 'Специалист по кадровому делопроизводству',
+  deadline: 'Ответственный за кадровые документы',
+  'role-change': 'HR-бизнес-партнёр',
+} : {
   onboarding: 'HR operations owner',
   deadline: 'Document control owner',
   'role-change': 'HR business partner',
 };
-const stageNames = ['Request recorded', 'Input validated', 'Owner assigned', 'Result recorded'];
+const stageNames = RU
+  ? ['Заявка создана', 'Данные проверены', 'Ответственный назначен', 'Результат записан']
+  : ['Request recorded', 'Input validated', 'Owner assigned', 'Result recorded'];
+const words = RU ? {
+  saved: 'Сохранено в этом браузере',
+  unsaved: 'Хранилище недоступно · текущие изменения не сохранены',
+  request: 'ДЕМО-ЗАЯВКА',
+  targetDate: 'Срок',
+  validated: 'Обязательные поля проверены; юридическая оценка не проводилась',
+  responsible: 'Ответственная роль',
+  closed: 'Заявка закрыта в демо; выполнение вне стенда не подтверждено',
+  done: 'Готово', current: 'Сейчас', next: 'Далее',
+  actions: [
+    ['Проверить данные', 'Проверьте обязательные поля перед назначением ответственного.'],
+    ['Назначить ответственного', 'Укажите одну ответственную роль и срок задачи.'],
+    ['Записать результат', 'Закройте демо-заявку с явным статусом.'],
+    ['Завершено', 'Демо-сценарий закрыт. Сбросьте стенд, чтобы попробовать другую заявку.'],
+  ],
+  nextAction: 'Следующий шаг', workflowComplete: 'Сценарий завершён',
+  validation: 'Выберите тип заявки, укажите роль (от 3 символов), срок и описание (от 10 символов).',
+  localOnly: 'Только в браузере · без сервера',
+  clearFailed: 'Не удалось очистить хранилище · удалите данные сайта в настройках браузера',
+  restored: 'Восстановлено из этого браузера',
+} : {
+  saved: 'Saved in this browser',
+  unsaved: 'Browser storage unavailable · current changes are not saved',
+  request: 'DEMO REQUEST',
+  targetDate: 'Target date',
+  validated: 'Required fields checked; no legal assessment performed',
+  responsible: 'Responsible role',
+  closed: 'Closed in this sandbox; external completion is not asserted',
+  done: 'Done', current: 'Current', next: 'Next',
+  actions: [
+    ['Validate input', 'Check the required fields before work is assigned.'],
+    ['Assign owner', 'Give one responsible role and a target date to the task.'],
+    ['Record result', 'Close the demo task with an explicit status.'],
+    ['Completed', 'This simulated workflow is closed. Reset to try another case.'],
+  ],
+  nextAction: 'Next action', workflowComplete: 'Workflow complete',
+  validation: 'Choose a workflow, enter a role (3+ characters), target date and context (10+ characters).',
+  localOnly: 'Local only · no server',
+  clearFailed: 'Could not clear browser storage · clear site data in browser settings',
+  restored: 'Restored from this browser',
+};
 const form = document.querySelector('#request-form');
 const error = document.querySelector('#form-error');
 const reset = document.querySelector('#reset');
@@ -32,9 +84,9 @@ function parseRecord() {
 function save() {
   try {
     localStorage.setItem(KEY, JSON.stringify(record));
-    saveStatus.textContent = 'Saved in this browser';
+    saveStatus.textContent = words.saved;
   } catch {
-    saveStatus.textContent = 'Browser storage unavailable · current changes are not saved';
+    saveStatus.textContent = words.unsaved;
   }
 }
 function render() {
@@ -42,28 +94,23 @@ function render() {
   document.querySelector('#empty').hidden = active;
   document.querySelector('#flow').hidden = !active;
   if (!active) return;
-  document.querySelector('#request-id').textContent = `DEMO REQUEST · ${record.id}`;
+  document.querySelector('#request-id').textContent = `${words.request} · ${record.id}`;
   document.querySelector('#summary-title').textContent = `${labels[record.type]} · ${record.role}`;
   document.querySelector('#summary-note').textContent = record.note;
   const details = [
-    `Target date: ${record.due}`,
-    'Required fields checked; no legal assessment performed',
-    `Responsible role: ${owners[record.type]}`,
-    'Closed in this sandbox; external completion is not asserted',
+    `${words.targetDate}: ${record.due}`,
+    words.validated,
+    `${words.responsible}: ${owners[record.type]}`,
+    words.closed,
   ];
   document.querySelector('#steps').innerHTML = stageNames.map((name, index) => {
     const state = index < record.stage || (record.stage === 3 && index === 3) ? 'done' : index === record.stage ? 'current' : 'pending';
-    const stateText = state === 'done' ? 'Done' : state === 'current' ? 'Current' : 'Next';
+    const stateText = state === 'done' ? words.done : state === 'current' ? words.current : words.next;
     return `<li><span class="step-num">0${index + 1}</span><div><div class="step-title">${escapeHtml(name)}</div><div class="step-detail">${escapeHtml(details[index])}</div></div><span class="step-state ${state}">${stateText}</span></li>`;
   }).join('');
-  const copy = [
-    ['Validate input', 'Check the required fields before work is assigned.'],
-    ['Assign owner', 'Give one responsible role and a target date to the task.'],
-    ['Record result', 'Close the demo task with an explicit status.'],
-    ['Completed', 'This simulated workflow is closed. Reset to try another case.'],
-  ][record.stage];
-  document.querySelector('#next-action').innerHTML = `<strong>Next action: ${copy[0]}</strong>${copy[1]}`;
-  advance.textContent = record.stage === 3 ? 'Workflow complete' : copy[0] + ' →';
+  const actionCopy = words.actions[record.stage];
+  document.querySelector('#next-action').innerHTML = `<strong>${words.nextAction}: ${actionCopy[0]}</strong>${actionCopy[1]}`;
+  advance.textContent = record.stage === 3 ? words.workflowComplete : actionCopy[0] + ' →';
   advance.disabled = record.stage === 3;
 }
 function validDate(value) {
@@ -76,7 +123,7 @@ form.addEventListener('submit', event => {
   const due = document.querySelector('#due-date').value;
   const note = document.querySelector('#note').value.trim();
   if (!labels[type] || role.length < 3 || !validDate(due) || note.length < 10) {
-    error.textContent = 'Choose a workflow, enter a role (3+ characters), target date and context (10+ characters).';
+    error.textContent = words.validation;
     error.hidden = false;
     return;
   }
@@ -95,9 +142,9 @@ reset.addEventListener('click', () => {
   record = null;
   try {
     localStorage.removeItem(KEY);
-    saveStatus.textContent = 'Local only · no server';
+    saveStatus.textContent = words.localOnly;
   } catch {
-    saveStatus.textContent = 'Could not clear browser storage · clear site data in browser settings';
+    saveStatus.textContent = words.clearFailed;
   }
   form.reset(); error.hidden = true; render();
 });
@@ -109,5 +156,5 @@ download.addEventListener('click', () => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 record = parseRecord();
-if (record) saveStatus.textContent = 'Restored from this browser';
+if (record) saveStatus.textContent = words.restored;
 render();
