@@ -1,6 +1,6 @@
 # LIFE: REBUILD v3 — technical overview
 
-**Release state:** public phone beta with a synthetic reviewer route. [Open demo](https://ejonnyss.github.io/life-rebuild/v3-phone-test/?demo=1) · [case study](../cases/life.html) · [synthetic screenshot](../assets/life-demo-mobile.png).
+**Release state:** public phone beta with a synthetic reviewer route. [Open demo](https://ejonnyss.github.io/life-rebuild/v3-phone-test/?demo=1) · [case study](../cases/life.html) · [synthetic screenshot](../assets/life-demo-mobile.webp).
 
 The current v3 source branch is local. This public overview does not represent the public `life-rebuild` main branch as the v3 code. The production build is published on GitHub Pages; private route packs and personal media are outside the public repository.
 
