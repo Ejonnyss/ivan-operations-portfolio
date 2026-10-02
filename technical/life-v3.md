@@ -40,7 +40,7 @@ npm run lint
 npm run build
 ```
 
-After the demo and offline-shell changes, 39/39 tests, lint and build passed. Browser QA checked a new demo session, action → separate external result, reload persistence and mode isolation at 390 px and 1280 px. A fresh local install activated the service worker in 214 ms with 19 cached shell files and no MP4 files; the optional save control cached all 16 videos and an offline reload succeeded. GitHub Pages build `5aec023` served the updated bundle; a fresh live browser found the same 19 shell files and reloaded the demo offline at 390 px without horizontal overflow. Local timing is not a live performance measurement. These checks do not establish retention, long-term usefulness or iPhone acceptance.
+After the demo and offline-shell changes, 39/39 tests, lint and build passed. Browser QA checked a new demo session, action → separate external result, reload persistence and mode isolation at 390 px and 1280 px. A fresh local install activated the service worker in 214 ms with 19 cached shell files and no MP4 files. GitHub Pages build `5aec023` served the updated bundle; a fresh live browser found the same 19 shell files, saved all 16 videos through the separate control, then reloaded the demo offline at 390 px with all 16 videos cached and no horizontal overflow. Local timing is not a live performance measurement. These checks do not establish retention, long-term usefulness or iPhone acceptance.
 
 ## Decisions and next gates
 
