@@ -8,7 +8,7 @@ Static portfolio and reviewer sandbox. The site has no build step and no externa
 python3 -m http.server 4176
 ```
 
-Open `http://127.0.0.1:4176/`. The KadrLine reviewer sandbox persists only in the visitor's browser. Use **Reset sandbox** to delete its local record.
+Open `http://127.0.0.1:4176/` for English or `/ru/` for the Russian landing page. Detailed case pages are in English and are labelled as such on the Russian page. The KadrLine reviewer sandbox persists only in the visitor's browser. Use **Reset sandbox** to delete its local record.
 
 ## Evidence and boundaries
 
