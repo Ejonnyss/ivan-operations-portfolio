@@ -10,7 +10,7 @@ The English and Russian portfolio pages have canonical, language-alternate and s
 python3 -m http.server 4176
 ```
 
-Open `http://127.0.0.1:4176/` for English or `/ru/` for Russian. Both versions have case pages; the live demos use their original interface languages. The KadrLine reviewer sandbox persists only in the visitor's browser. Use **Reset sandbox** to delete its local record.
+Open `http://127.0.0.1:4176/` for English or `/ru/` for Russian. Both versions have case pages; the live demos use their original interface languages. The KadrLine reviewer sandbox persists only in the visitor's browser when browser storage is available. If storage is blocked, the current fictional request remains usable in memory and the UI marks it unsaved. Use **Reset sandbox** to delete the local record; if the browser blocks deletion, clear site data in browser settings.
 
 ## Evidence and boundaries
 

@@ -15,6 +15,7 @@ const error = document.querySelector('#form-error');
 const reset = document.querySelector('#reset');
 const advance = document.querySelector('#advance');
 const download = document.querySelector('#download');
+const saveStatus = document.querySelector('#save-status');
 let record = null;
 
 function escapeHtml(value) {
@@ -28,7 +29,14 @@ function parseRecord() {
     return saved;
   } catch { return null; }
 }
-function save() { localStorage.setItem(KEY, JSON.stringify(record)); }
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(record));
+    saveStatus.textContent = 'Saved in this browser';
+  } catch {
+    saveStatus.textContent = 'Browser storage unavailable · current changes are not saved';
+  }
+}
 function render() {
   const active = !!record;
   document.querySelector('#empty').hidden = active;
@@ -84,7 +92,14 @@ advance.addEventListener('click', () => {
   save(); render();
 });
 reset.addEventListener('click', () => {
-  record = null; localStorage.removeItem(KEY); form.reset(); error.hidden = true; render();
+  record = null;
+  try {
+    localStorage.removeItem(KEY);
+    saveStatus.textContent = 'Local only · no server';
+  } catch {
+    saveStatus.textContent = 'Could not clear browser storage · clear site data in browser settings';
+  }
+  form.reset(); error.hidden = true; render();
 });
 download.addEventListener('click', () => {
   if (!record) return;
@@ -93,4 +108,6 @@ download.addEventListener('click', () => {
   const link = document.createElement('a'); link.href = url; link.download = `${record.id.toLowerCase()}.json`; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
-record = parseRecord(); render();
+record = parseRecord();
+if (record) saveStatus.textContent = 'Restored from this browser';
+render();
