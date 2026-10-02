@@ -23,10 +23,10 @@ The public sandbox is a separate static interface. It validates a fictional requ
 
 ## Verification and open gates
 
-- Private Worker package: 20/20 automated tests passed in this audit.
+- Private Worker package: 21/21 automated tests passed after a narrow Content Security Policy repair. The deployed Sites source commit is `5a5f47c61c0bf92dc0bf67349ae71b40b5b5542c` (version 11); prior version 10 remains available for rollback.
 - Public sandbox: browser-tested request → validation → assignment → result, reload persistence and export, including mobile visual review.
 - GitHub Pages served the sandbox and its case page. A read-only live API health request returned HTTP 200 with SMTP and WEEEK configuration flags true; an allowed-origin `OPTIONS` preflight returned 204. These checks establish endpoint availability and configuration, not task or email delivery.
-- The existing public [eight-question military-accounting checklist](https://kadrline-risk-map-api.isepifanov.chatgpt.site/voinskiy-uchet) was opened on 2 October 2026. Fictional answers reached a generated result; the 390 px result had no horizontal overflow. The contact form was not submitted, and legal or price copy was not revalidated in this portfolio review. Browser console showed Content Security Policy blocks for Yandex Metrica requests, so the page does not meet a zero-console-error QA gate. This is functional UI evidence only.
+- The existing public [eight-question military-accounting checklist](https://kadrline-risk-map-api.isepifanov.chatgpt.site/voinskiy-uchet) was opened on 2 October 2026. Fictional answers reached a generated result; the 390 px result had no horizontal overflow. The contact form was not submitted, and legal or price copy was not revalidated in this portfolio review. Analytics requests initially hit CSP errors. Version 11 added only the specific Yandex Metrica WebSocket, image and frame origins used by the page; fresh browser loads of the checklist and calculator showed zero console errors. This is functional UI evidence, not lead-delivery or legal-accuracy evidence.
 - The KadrLine Tilda page returned ddos-guard HTTP 402 to this environment, so the public questionnaire user flow and production POST submission remain unverified here.
 
 The next gate is authorized production readback with a redacted synthetic submission and delivery evidence. No employer/client data or private credentials should enter a public repository.
